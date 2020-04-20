@@ -8,7 +8,7 @@
     'sequence': 6,
     'summary': 'Customization for Point fof Sale',
     'description': """Customized features for Same Motion Evaluation""",
-    'depends': ['point_of_sale','account'],
+    'depends': ['crm','account'],
     'data': [
         # 'data/pos_sale_data.xml',
         # 'security/pos_sale_security.xml',
@@ -16,6 +16,8 @@
         # 'views/sales_team_views.xml',
         # 'views/pos_config_views.xml',
         # 'views/pos_custom.xml',
+        'views/account_invoice_view.xml',
+        'report/report_invoice.xml',
     ],
     'installable': True,
     'auto_install': True,
