@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<t t-name="PaymentScreenWidget" t-extend="PaymentScreenWidget">
+            <t t-jquery='.payment-buttons' t-operation='append'>
+                <span class="control-button">
+                    <i class="fa fa-print"></i>
+                        Boleta
+                </span>
+            </t>
+</t>
+
+</templates>
