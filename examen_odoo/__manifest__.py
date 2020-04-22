@@ -36,6 +36,6 @@
     ],
 
     'qweb': [
-        'static/src/xml/custom_button.xml'
+        #'static/src/xml/custom_button.xml'
     ]
 }
