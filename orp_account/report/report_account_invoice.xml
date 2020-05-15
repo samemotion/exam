@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_fc" inherit_id="account.report_invoice_document">
+        <xpath expr="//thead" position="replace">
+            <thead>
+                <tr style="font-size: 12px">
+                    <th>Descripción</th>
+                    <th class="text-right">Cantidad</th>
+                    <th class="text-right">Precio Unitario</th>
+                    <th t-if="display_discount" class="text-right">Desc.(%)</th>
+                    <th class="text-right">Impuestos</th>
+                    <th class="text-right">Importe</th>
+                </tr>
+            </thead>
+        </xpath>
+        <xpath expr="//div[@t-if='o.date_invoice']" position="replace">
+            <div class="col-auto mw-100 mb-2" t-if="o.date_invoice" name="invoice_date">
+                <strong>Fecha de emisión:</strong>
+                <p class="m-0" t-field="o.date_submit"/>
+            </div>
+            <div class="col-auto mw-100 mb-2" t-if="o.team_type" name="team_type">
+                <strong>Canal de ventas:</strong>
+                <p class="m-0" t-field="o.team_type"/>
+            </div>
+        </xpath>
+  
+    </template>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_invoice_form" model="ir.ui.view">
+        <field name="name">account.invoice.form.inherit.orp_account</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_stock_picking" string="Transferir" type="object"  class="oe_highlight"
+                     attrs="{'invisible':['|',('state', '=', 'draft'),('picking_count', '=', 1)]}"/>
+            </xpath>
+            <xpath expr="/form/sheet/h1[@class='mt0']" position="replace">
+                <div class="oe_button_box" name="button_box">
+                    <button type="object"
+                        name="action_view_picking" states="open,paid"
+                        class="oe_stat_button" attrs="{'invisible':[('origin', '!=', False)]}"
+                        icon="fa-truck">
+                        <field name="picking_count"  string="Shipment" widget="statinfo"/>
+                    </button>
+                </div>
+                <h1 class="mt0">
+                    <div>
+                        <label for="sequence_number_next_prefix" string="FACTURA: "/><br/>
+                        <field name="sequence_number_next_prefix" class="oe_inline"/>
+                        <field name="sequence_number_next" class="oe_inline"/>
+                    </div>
+                </h1>
+            </xpath>
+            <xpath expr="/form/sheet/group/group[2]/field[@name='date_invoice']" position="replace">
+                <field name="date_submit"/>
+            </xpath>
+            <field name="user_id" position="after">
+                <field name="team_type"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
