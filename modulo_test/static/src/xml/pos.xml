@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="modulo_test.template" inherit_id="point_of_sale.template">
+    <t t-extend="PaymentScreenWidget">
+
+        <t t-jquery=".js_email" t-operation="before">
+
+            <div class='button js_email'>
+                <i class='fa fa-file-text-o' /> Boleta
+            </div>
+        </t>
+    </t>
+    
+    <t t-extend="ClientLine">
+
+        <t t-jquery=".client-line" t-operation="replace">
+
+            <tr class='client-line' t-att-data-id='partner.id'>
+                <td><t t-esc='partner.name' /></td>
+                <td><t t-esc='partner.address' /></td>
+                <td><t t-esc='partner.phone or partner.mobile or ""' /></td>
+                <td><t t-esc='partner.email' /></td>
+            </tr>
+        </t>
+    </t>
+
+    <t t-extend="ClientListScreenWidget">
+        
+        <t t-jquery=".client-list" t-operation="replace">
+
+            <table class='client-list'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody class='client-list-contents'>
+                </tbody>
+            </table>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_customized_qr" inherit_id="account.report_invoice_document">
+        <xpath expr="//p[@t-if='o.invoice_payment_term_id']" position="after">
+            <div style="width:100px;heigh:100px;float:left;">
+                <span t-field="o.qr_image" t-options='{"widget": "image"}' />                
+            </div>
+        </xpath>
+        <xpath expr="//div[@t-if='o.invoice_date']" position="replace">
+            <div class="col-auto mw-100 mb-2" t-if="o.fecha_emision" name="fecha_emision">
+                <strong>Fecha Emisión:</strong>
+                <p class="m-0" t-field="o.fecha_emision"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='informations']" position="after">
+            <div id="informations" class="row mt32 mb32">
+                <div class="col-auto mw-100 mb-2" t-if="o.numero_serie" name="numero_serie">
+                    <strong>Serie:</strong>
+                    <p class="m-0" t-field="o.numero_serie"/>
+                </div>
+                <div class="col-auto mw-100 mb-2" t-if="o.numero_correlativo" name="numero_correlativo">
+                    <strong>Correlativo:</strong>
+                    <p class="m-0" t-field="o.numero_correlativo"/>
+                </div>
+                <div class="col-auto mw-100 mb-2" t-if="o.canal_ventas" name="canal_ventas">
+                    <strong>Canal Ventas:</strong>
+                    <p class="m-0" t-field="o.canal_ventas"/>
+                </div>               
+            </div>
+        </xpath>
+    </template>   
+</odoo>
